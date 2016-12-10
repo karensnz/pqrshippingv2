@@ -10,7 +10,8 @@ class PickupsController < ApplicationController
   end
 
   def index
-    @pickups = current_user.pickups.page(params[:page]).per(10)
+    @q = current_user.pickups.ransack(params[:q])
+      @pickups = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@pickups.where.not(:package_destination_latitude => nil)) do |pickup, marker|
       marker.lat pickup.package_destination_latitude
       marker.lng pickup.package_destination_longitude
