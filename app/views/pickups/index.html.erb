@@ -20,7 +20,7 @@
 
       <% @pickups.each do |pickup| %>
       <tr>
-        <td><%= pickup.user_id %></td>
+        <td><%= pickup.user.email %></td>
         <td><%= pickup.date %></td>
         <td><%= pickup.materials_needed %></td>
         <td><%= pickup.package_destination %></td>
