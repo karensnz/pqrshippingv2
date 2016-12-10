@@ -28,8 +28,11 @@
         <td><%= pickup.special_instructions %></td>
         <td>
           <a href="/pickups/<%= pickup.id %>" class="btn btn-primary">Show</a>
-          <a href="/pickups/<%= pickup.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_pickup/<%= pickup.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == pickup.user %>
+            <a href="/pickups/<%= pickup.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_pickup/<%= pickup.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

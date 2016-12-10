@@ -1,4 +1,14 @@
 class PickupsController < ApplicationController
+  before_action :current_user_must_be_pickup_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_pickup_user
+    pickup = Pickup.find(params[:id])
+
+    unless current_user == pickup.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @pickups = Pickup.all
 
