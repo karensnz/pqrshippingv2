@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @pickup.errors.any? %>
+  <% @pickup.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Pickup #<%= @pickup.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_pickup/<%= @pickup.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @pickup.user_id %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @pickup.date %>">
+      </div>
+
+      <!-- Label and input for materials_needed -->
+      <div class="form-group">
+        <label for="materials_needed" class="control-label">
+          Materials needed
+        </label>
+
+        <input type="text" id="materials_needed" name="materials_needed" placeholder="Materials needed" class="form-control" value="<%= @pickup.materials_needed %>">
+      </div>
+
+      <!-- Label and input for package_destination -->
+      <div class="form-group">
+        <label for="package_destination" class="control-label">
+          Package destination
+        </label>
+
+        <input type="text" id="package_destination" name="package_destination" placeholder="Package destination" class="form-control" value="<%= @pickup.package_destination %>">
+      </div>
+
+      <!-- Label and input for image_upload -->
+      <div class="form-group">
+        <label for="image_upload" class="control-label">
+          Image upload
+        </label>
+
+        <input type="text" id="image_upload" name="image_upload" placeholder="Image upload" class="form-control" value="<%= @pickup.image_upload %>">
+      </div>
+
+      <!-- Label and input for special_instructions -->
+      <div class="form-group">
+        <label for="special_instructions" class="control-label">
+          Special instructions
+        </label>
+
+        <textarea id="special_instructions" name="special_instructions" placeholder="Special instructions" class="form-control" rows="3"><%= @pickup.special_instructions %></textarea>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Pickup
+      </button>
+      or
+      <a href="/pickups/<%= @pickup.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
