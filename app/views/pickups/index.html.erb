@@ -24,7 +24,7 @@
         <td><%= pickup.date %></td>
         <td><%= pickup.materials_needed %></td>
         <td><%= pickup.package_destination %></td>
-        <td><%= pickup.image_upload %></td>
+        <td><img src='<%= pickup.image_upload %>' class='img-responsive'></td>
         <td><%= pickup.special_instructions %></td>
         <td>
           <a href="/pickups/<%= pickup.id %>" class="btn btn-primary">Show</a>
