@@ -5,6 +5,8 @@ class Pickup < ApplicationRecord
 
   # Validations
 
+  validates :date, :uniqueness => { :scope => [:user_id] }
+
   validates :date, :presence => true
 
   validates :image_upload, :presence => true
