@@ -5,6 +5,8 @@ class Pickup < ApplicationRecord
 
   # Validations
 
+  validates :package_destination, :presence => true
+
   validates :user_id, :presence => true
 
 end
