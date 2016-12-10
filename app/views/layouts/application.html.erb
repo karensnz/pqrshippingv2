@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Pqrshippingv2</title>
+  <title>Pqrshipping</title>
 
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -35,18 +35,21 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">Pqrshippingv2</a>
+          <a href="http://www.pqrshipping.com/" class="navbar-brand">Pqrs</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/pickups">Pickups</a></li>
-          <li><a href="/users">Users</a></li>
-          <li><a href="/rails/info">Sitemap</a></li>
+          <li><a href="/pickups/new">New Pickup</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav">
+          <li><a href="/pickups">My Scheduled Pickups</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://www.pqrshipping.com/contact.html">Contact Us</a></li>
           <% if current_user.present? %>
             <li>
               <a href="/users/edit">

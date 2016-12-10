@@ -27,13 +27,17 @@
           Date
         </label>
 
-        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @pickup.date %>">
+        <div class='input-group date' id='datetimepicker1'>
+        <input type= 'text' class="form control" name="held_on" id="held_on">
+        <span class= "input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
       </div>
 
       <!-- Label and input for materials_needed -->
       <div class="form-group">
         <label for="materials_needed" class="control-label">
-          Materials needed
+          Materials needed (box or envelope)
         </label>
 
         <input type="text" id="materials_needed" name="materials_needed" placeholder="Materials needed" class="form-control" value="<%= @pickup.materials_needed %>">
@@ -54,7 +58,7 @@
           Image upload
         </label>
 
-        <input type="text" id="image_upload" name="image_upload" placeholder="Image upload" class="form-control" value="<%= @pickup.image_upload %>">
+        <input type="file" id="image_upload" name="image_upload" placeholder="Image upload" class="form-control" value="<%= @pickup.image_upload %>">
       </div>
 
       <!-- Label and input for special_instructions -->
@@ -74,3 +78,10 @@
     </form>
   </div>
 </div>
+
+
+<script type= "text/javascript">
+$(function () {
+  $('#datetimepicker1').datetimepicker();
+});
+</script>

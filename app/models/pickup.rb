@@ -38,4 +38,5 @@ class Pickup < ApplicationRecord
 
   validates :user_id, :presence => true
 
+  mount_uploader :image_upload, ImageUploadUploader
 end
