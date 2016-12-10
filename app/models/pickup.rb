@@ -5,6 +5,8 @@ class Pickup < ApplicationRecord
 
   # Validations
 
+  validates :date, :presence => true
+
   validates :image_upload, :presence => true
 
   validates :package_destination, :presence => true
