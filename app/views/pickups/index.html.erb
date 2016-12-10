@@ -29,7 +29,13 @@
 
       <% @pickups.each do |pickup| %>
       <tr>
-        <td><%= pickup.user.email %></td>
+        <td>
+          <% if pickup.user.present? %>
+            <a href="/users/<%= pickup.user.id %>">
+              <%= pickup.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= pickup.date %></td>
         <td><%= pickup.materials_needed %></td>
         <td><%= pickup.package_destination %></td>
