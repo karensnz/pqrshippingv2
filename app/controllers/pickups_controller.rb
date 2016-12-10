@@ -11,6 +11,11 @@ class PickupsController < ApplicationController
 
   def index
     @pickups = current_user.pickups.page(params[:page]).per(10)
+    @location_hash = Gmaps4rails.build_markers(@pickups.where.not(:package_destination_latitude => nil)) do |pickup, marker|
+      marker.lat pickup.package_destination_latitude
+      marker.lng pickup.package_destination_longitude
+      marker.infowindow "<h5><a href='/pickups/#{pickup.id}'>#{pickup.created_at}</a></h5><small>#{pickup.package_destination_formatted_address}</small>"
+    end
 
     render("pickups/index.html.erb")
   end
