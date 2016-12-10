@@ -5,4 +5,6 @@ class Pickup < ApplicationRecord
 
   # Validations
 
+  validates :user_id, :presence => true
+
 end
