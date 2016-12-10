@@ -1,5 +1,7 @@
 ActiveAdmin.register Pickup do
 
+ permit_params :user_id, :date, :materials_needed, :package_destination, :image_upload, :special_instructions
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
