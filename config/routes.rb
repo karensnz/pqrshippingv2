@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "pickups#index"
   # Routes for the Pickup resource:
   # CREATE
   get "/pickups/new", :controller => "pickups", :action => "new"
